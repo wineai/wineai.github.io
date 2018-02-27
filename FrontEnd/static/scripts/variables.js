@@ -34,8 +34,8 @@ var linkFromTheAbyss = null;	// cant remember purpose maybe link from prediction
 var enablePlotCaching = false;	// owo what dis 
 
 /* Config */
-var webstaticURL = "http://localhost/WineAI/FrontEnd/static";
-var webserviceURL = "http://localhost/WineAI/BackEnd"; //http://informatica-unab-vm.cl/wineai/BackEnd
+var webstaticURL = "FrontEnd/static";
+var webserviceURL = "https://localhost/WineAI/BackEnd"; //http://informatica-unab-vm.cl/wineai/BackEnd
 var predictionInterval = 1000*60*60*12;
 var enableAnimations = false;
 var enableCarouselView = false;
