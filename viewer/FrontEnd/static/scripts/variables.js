@@ -35,7 +35,7 @@ var enablePlotCaching = false;	// owo what dis
 
 /* Config */
 var webstaticURL = "FrontEnd/static";
-var webserviceURL = "https://localhost/WineAI/BackEnd"; //http://informatica-unab-vm.cl/wineai/BackEnd
+var webserviceURL = "http://informatica-unab-vm.cl/wineai/BackEnd";
 var predictionInterval = 1000*60*60*12;
 var enableAnimations = false;
 var enableCarouselView = false;
