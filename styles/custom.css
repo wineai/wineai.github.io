@@ -1,0 +1,313 @@
+html, body, main, .ng-scope-main {
+
+	width: 100%;
+	height: 100%;
+
+	margin: 0px;
+	padding: 0px;
+	cursor: default;
+}
+
+.longboy {
+	
+	width: 130px !important;
+}
+
+.full-width {
+	
+	width: 100%;
+	text-align: center;
+}
+
+.dialog {
+	
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	z-index: 99999;
+	background: rgba(255,255,255,0.9);
+}
+
+.smol-select {
+	
+	width: 102px !important;
+	text-align: center !important;
+	border: 1px solid #b3b3b3 !important;
+	margin: 0px !important;
+	height: 32px !important;
+	background: white !important;
+	display: inline-block !important;
+	cursor: pointer;
+}
+
+.smol-input {
+	
+	width: 100px !important;
+	text-align: center !important;
+	border: 1px solid #b3b3b3 !important;
+	margin: 0px !important;
+	height: 2rem !important;
+	background: white !important;
+}
+
+.roger {
+	
+	margin: 5px !important;
+}
+
+.medium-input {
+	
+	width: 345px !important;
+	text-align: left !important;
+	padding-left: 5px !important;
+	border: 1px solid #b3b3b3 !important;
+	margin: 0px !important;
+	height: 2rem !important;
+	background: white !important;
+}
+
+#chart-container {
+	
+	height: 398px;
+	width: 598px;
+	display: inline-block;
+	border: 1px solid black;
+	vertical-align: top;
+}
+
+#chart-placeholder {
+	
+	height: 337px;
+	width: 598px;
+
+	display: inline-block;
+	vertical-align: top;
+	text-align: center;
+}
+
+.selected-variable-tooltip {
+	
+	font-size: 22px;
+}
+
+.xtra {
+	
+	margin-top: 30px;
+	display: inline-block !important;
+	vertical-align: middle;
+}
+
+#chart-options {
+	
+	height: 60px;
+	width: 596px;
+	display: inline-block;
+	border-bottom: 1px solid black;
+	vertical-align: top;
+}
+
+.data-pool {
+	
+	margin-left: 5px;
+	border: 1px solid black;
+	width: 198px;
+	height: 398px;
+	display: inline-block;
+	
+	overflow: auto;
+}
+
+.helper-para-graficar {
+	
+	background: url('../images/helper.png');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.clickeable {
+	
+	cursor: pointer;
+}
+
+.clickeable:hover {
+	
+	color: purple !important;
+}
+
+.fermenta-bien {
+	
+	color: white;
+	cursor: pointer;
+
+	margin: 5px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+
+	border-radius: 5px;
+	background-color: #1976d2;
+}
+
+.stomper {
+
+	padding: 5px;
+	margin: 5px;
+	margin-left: 7px;
+	margin-right: 7px;
+	border: 1px solid rgba(0,0,0,0.3);
+	background-color: white;
+}
+
+.blindfold {
+	
+	width: 100%;
+	height: 100%;
+	
+	cursor: default;
+}
+
+.custom-nav {
+
+	width: 50%;
+	height: 65px;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.vantainer {
+	
+	white-space: nowrap;
+}
+
+.valign {
+	
+	width: 0px;
+	height: 100%;
+	min-height: 100%;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.venter {
+
+	display: inline-block;
+	vertical-align: middle;
+	white-space: normal;
+}
+
+.custom-option-box {
+
+	width: 240px;
+	height: 240px;
+
+	margin: 10px;
+
+	cursor: pointer;
+	display: inline-block;
+	vertical-align: top;
+
+	color: white;
+	font-size: 18px;
+	background-color: black;
+}
+
+.pls-circle-background {
+	
+	background-image: url("../images/circle.png");
+	background-position: 50% 20px;
+	background-size: 150px auto;
+	background-repeat: no-repeat;
+}
+
+.custom-image-box {
+	
+	width: 144px;
+	height: 144px;
+
+	margin: 23px;
+}
+
+.custom-image-size-1 {
+	
+	width: 160px;
+	height: 160px;
+
+	margin: 15px;
+	margin-left: 25px;
+	margin-right: 5px;
+}
+
+.custom-image-size-2 {
+	
+	width: 144px;
+	height: 144x;
+
+	margin: 23px;
+}
+
+.custom-image-size-3 {
+	
+	width: 166px;
+	height: 166px;
+
+	margin: 12px;
+}
+
+.custom-image-size-4 {
+	
+	width: 154px;
+	height: 154px;
+
+	margin: 17px;
+}
+
+.custom-color-1 {
+
+	background-color: #f75189;
+}
+
+.custom-color-2 {
+
+	background-color: #3ca73e;
+}
+
+.custom-color-3 {
+
+	background-color: #ae74da;
+}
+
+.custom-color-4 {
+
+	background-color: #ff593d;
+}
+
+.custom-color-5 {
+
+
+}
+
+.custom-color-6 {
+
+
+}
+
+.custom-select {
+
+	width: auto;
+	min-width : 200px;
+
+	margin: 5px;
+	
+	cursor: pointer;
+	display : inline-block !important;
+
+	border: 1px solid #7cc1f8;
+}
+
+.custom-table {
+	
+	width: auto;
+	cursor: default;
+	display: inline-block;
+}
