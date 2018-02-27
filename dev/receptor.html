@@ -1,0 +1,39 @@
+<html>
+<head>
+<style>
+html,body {
+height:100%;
+width:100%;
+margin:0px;
+padding:0px;
+}
+
+body {
+
+	font-size:32px;
+	font-family: Verdana;
+	color: white;
+	text-align:center;
+	margin-top: 100px;
+}
+
+</style>
+</head>
+<body>
+<script>
+
+var conn = new WebSocket('ws://201.215.21.60:80');
+
+conn.onopen = function(e) {
+
+    console.log("Connection established!");
+};
+
+conn.onmessage = function(e) {
+
+    document.body.innerHTML = e.data;
+	document.body.style.backgroundColor = "red";
+};
+
+</script>
+</body>
