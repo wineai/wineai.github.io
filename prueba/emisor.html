@@ -1,0 +1,31 @@
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+<div class="container"><div class="valign"></div><div class="venter">
+<div class="titulo">WineAI - Push Notification Test</div>
+<div id="contenido">Establenciendo conexion...</div>
+</div></div>
+
+<script>
+
+var conn = new WebSocket('ws://winesocket.ddns.net:80');
+
+conn.onopen = function(e) {
+
+	document.getElementById("contenido").innerHTML = "La <input id='fermentacion' value='Fermentacion #1'> va <select id='estado'><option>Bien</option><option>Mal</option></select>  <button onclick='opio();'>Enviar Notificacion</button>";
+};
+
+function opio() {
+
+	var fermentacion = document.getElementById("fermentacion").value;
+	var estado = document.getElementById("estado");
+
+    conn.send('La ' + fermentacion + ' va ' + estado.options[estado.selectedIndex].value);
+}
+
+</script>
+</body>

@@ -1,0 +1,30 @@
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+<div class="container"><div class="valign"></div><div class="venter">
+<div class="titulo">WineAI - Push Notification Test</div>
+<div id="contenido">Establenciendo conexion...</div>
+</div></div>
+
+
+<script>
+
+var conn = new WebSocket('ws://winesocket.ddns.net:80');
+
+conn.onopen = function(e) {
+
+    document.getElementById("contenido").innerHTML = "Esta pagina se encuentra lista para recibir notificaciones desde el predictor.";
+};
+
+conn.onmessage = function(e) {
+
+    document.getElementById("contenido").innerHTML = e.data;
+	document.body.style.backgroundColor = (e.data.search("Bien") === -1) ? "red" : "green";
+};
+
+</script>
+</body>
