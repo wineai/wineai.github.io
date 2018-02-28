@@ -1,0 +1,48 @@
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+<div class="container"><div class="valign"></div><div class="venter">
+<div id="titulo">WineAI - Push Notification Test</div>
+<div id="contenido">Establenciendo conexion...</div>
+</div></div>
+
+
+<script>
+
+var conn = new WebSocket('ws://winesocket.ddns.net:8080');
+
+var defaultValues = function(e) {
+
+	document.body.style.backgroundColor = "";
+	document.getElementById("titulo").innerHTML = "WineAI - Push Notification Test";
+    document.getElementById("contenido").innerHTML = "Esta pagina se encuentra lista para recibir notificaciones desde el predictor.";
+    document.getElementById("contenido").style.display = "";
+};
+
+conn.onopen = defaultValues;
+
+conn.onmessage = function(e) {
+
+	defaultValues();
+
+	if ( e.data.search("Bien") !== -1 ) {
+
+		document.body.style.backgroundColor = "green";
+		document.getElementById("contenido").style.display = "none";
+		document.getElementById("titulo").innerHTML = e.data
+	}
+	else if ( e.data.search("Mal") !== -1 ) {
+
+		document.body.style.backgroundColor = "red";
+		document.getElementById("contenido").style.display = "none";
+		document.getElementById("titulo").innerHTML = e.data
+	}
+
+};
+
+</script>
+</body>
