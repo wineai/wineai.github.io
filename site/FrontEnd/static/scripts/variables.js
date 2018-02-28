@@ -34,6 +34,7 @@ var linkFromTheAbyss = null;	// cant remember purpose maybe link from prediction
 var enablePlotCaching = false;	// owo what dis 
 
 /* Config */
+var websocketURL = 'ws://winesocket.ddns.net:8080';
 var webstaticURL = "http://wineviewer.ddns.net/site/FrontEnd/static";
 var webserviceURL = "http://wineservice.ddns.net:8081/BackEnd";
 var predictionInterval = 1000*60*60*12;

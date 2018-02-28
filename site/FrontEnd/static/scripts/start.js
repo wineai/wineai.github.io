@@ -8,8 +8,23 @@
  *
  * Global module of the application.
  */
-
+ 
 window.onload = function () {
+
+	var conn = new WebSocket(window.websocketURL);
+
+	conn.onopen = function () {
+		
+		console.log("WebSocket open! now listening.");
+	};
+
+	conn.onmessage = function(e) {
+		
+		var input = e.data.toLowerCase();
+
+		window.Materialize.toast('Nueva Prediccion', 4000, 'rounded green');
+	};
+
 
 	document.getElementsByTagName('title')[0].innerHTML = window.appTitle;
 
