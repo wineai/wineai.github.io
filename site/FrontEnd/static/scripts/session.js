@@ -15,6 +15,7 @@ var Session = function (self) {
 	self.token = '';
 
 	self.timeout = 0;
+	self.interval = 20000;
 	self.running = false;
 
 	return {
@@ -49,7 +50,7 @@ var Session = function (self) {
 
 				Session.run();
 
-			}, 2000);
+			}, self.interval);
 		},
 
 		getUsername : function () {
