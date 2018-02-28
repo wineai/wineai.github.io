@@ -19,10 +19,8 @@ window.onload = function () {
 	};
 
 	conn.onmessage = function(e) {
-		
-		var input = e.data.toLowerCase();
 
-		window.Materialize.toast('Nueva Prediccion', 4000, 'rounded green');
+		window.Materialize.toast('Nueva Prediccion: ' + e.data, 4000, 'rounded green');
 	};
 
 
