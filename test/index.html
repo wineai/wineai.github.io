@@ -28,14 +28,16 @@ conn.onopen = defaultValues;
 conn.onmessage = function(e) {
 
 	defaultValues();
+	
+	var input = e.data.toLowerCase();
 
-	if ( e.data.search("Bien") !== -1 ) {
+	if ( input.search("bien") !== -1 ) {
 
 		document.body.style.backgroundColor = "green";
 		document.getElementById("contenido").style.display = "none";
 		document.getElementById("titulo").innerHTML = e.data
 	}
-	else if ( e.data.search("Mal") !== -1 ) {
+	else if ( input.search("mal") !== -1 ) {
 
 		document.body.style.backgroundColor = "red";
 		document.getElementById("contenido").style.display = "none";
