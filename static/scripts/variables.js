@@ -13,7 +13,7 @@
 var feika = '/dev/test';	// for prediction shenanigans
 var zasshu = true;			// can't remember
 var phantom = false;		// to use the old login system
-var cristine = false;		// to disable the new session check
+var cristine = true;		// to disable the new session check
 var devcounter = 0;
 var devtabindex = null;
 
@@ -35,7 +35,7 @@ var enablePlotCaching = false;	// owo what dis
 
 /* Config */
 var websocketURL = 'ws://winesocket.ddns.net:8080';
-var webstaticURL = "http://wineviewer.ddns.net/site/FrontEnd/static";
+var webstaticURL = "http://wineviewer.ddns.net/static";
 var webserviceURL = "http://wineservice.ddns.net:8081/BackEnd";
 var predictionInterval = 1000*60*60*12;
 var enableAnimations = false;
