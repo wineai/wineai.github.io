@@ -20,7 +20,29 @@ window.onload = function () {
 
 	conn.onmessage = function(e) {
 
-		window.Materialize.toast('Nueva Prediccion: ' + e.data, 4000, 'rounded green');
+		var firstSpace = e.data.search(" ");
+
+		if ( firstSpace > 0 ) {
+
+			var type = e.data.substr(0, firstSpace);
+			var message = e.data.substr(firstSpace);
+
+			switch ( type ) {
+				
+				case "notification":
+					window.Materialize.toast(message, 8000, 'rounded green');
+					break;
+
+				case "session":
+					Session.destroy();
+					Session.check();
+					window.Materialize.toast(message, 4000, 'rounded orange');
+					break;
+					
+				default:
+					console.log("unknown message type received: " + message);
+			}
+		}
 	};
 
 
