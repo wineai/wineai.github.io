@@ -9,42 +9,57 @@
  * Global module of the application.
  */
  
+var conn;
+
+function wsStart() {
+
+	var token = window.getCookie("session");
+
+	if ( token != "" ) {
+
+		conn = new WebSocket(window.websocketURL);
+
+		conn.onopen = function () {
+
+			conn.send("identify " + token);
+		};
+
+		conn.onmessage = function(e) {
+
+			var firstSpace = e.data.search(" ");
+
+			if ( firstSpace > 0 ) {
+
+				var type = e.data.substr(0, firstSpace);
+				var message = e.data.substr(firstSpace);
+
+				switch ( type ) {
+					
+					case "notification":
+						window.Materialize.toast(message, 8000, 'rounded green');
+						break;
+
+					case "session":
+						Session.destroy();
+						Session.check();
+						window.Materialize.toast(message, 4000, 'rounded orange');
+						break;
+
+					case "identify":
+						/* Ignore */
+						break;
+
+					default:
+						console.log("unknown message type received: " + message);
+				}
+			}
+		};
+	}
+}
+
 window.onload = function () {
 
-	var conn = new WebSocket(window.websocketURL);
-
-	conn.onopen = function () {
-		
-		console.log("WebSocket open! now listening.");
-	};
-
-	conn.onmessage = function(e) {
-
-		var firstSpace = e.data.search(" ");
-
-		if ( firstSpace > 0 ) {
-
-			var type = e.data.substr(0, firstSpace);
-			var message = e.data.substr(firstSpace);
-
-			switch ( type ) {
-				
-				case "notification":
-					window.Materialize.toast(message, 8000, 'rounded green');
-					break;
-
-				case "session":
-					Session.destroy();
-					Session.check();
-					window.Materialize.toast(message, 4000, 'rounded orange');
-					break;
-					
-				default:
-					console.log("unknown message type received: " + message);
-			}
-		}
-	};
-
+	wsStart();
 
 	document.getElementsByTagName('title')[0].innerHTML = window.appTitle;
 

@@ -22,35 +22,8 @@ var Session = function (self) {
 
 		run : function () {
 
-			if ( window.cristine ) {
-				
-				return;
-			}
-
-			clearTimeout(self.timeout);
-		
-			if ( self.token !== '' ) {
-
-				window.$.ajax({
-
-					url: window.webserviceURL + '/session/validate.php?token=' + self.token,
-					success : function (response) {
-						
-						if ( response === '' ) {
-							
-							Session.destroy();
-							Session.check();
-							window.Materialize.toast('Su session ha expirado', 10000, 'rounded orange');
-						}
-					}
-				});
-			}
-
-			self.timeout = setTimeout(function () {
-
-				Session.run();
-
-			}, self.interval);
+			wsStart();
+			self.running = true;
 		},
 
 		getUsername : function () {
