@@ -40,9 +40,7 @@ function wsStart() {
 						break;
 
 					case "session":
-						Session.destroy();
-						Session.check();
-						window.Materialize.toast(message, 4000, 'rounded orange');
+						Session.update(message);
 						break;
 
 					case "identify":

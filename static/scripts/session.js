@@ -24,6 +24,16 @@ var Session = function (self) {
 			self.running = true;
 		},
 
+		update : function (token) {
+		
+			if ( token == self.token ) {
+
+				Session.destroy();
+				Session.check();
+				window.Materialize.toast("Su session ha expirado", 4000, 'rounded orange');
+			}
+		},
+		
 		getUsername : function () {
 
 			return self.user;
