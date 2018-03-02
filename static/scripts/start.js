@@ -9,7 +9,7 @@
  * Global module of the application.
  */
  
-var conn;
+var conn = null;
 
 function wsStart() {
 
@@ -17,11 +17,20 @@ function wsStart() {
 
 	if ( token != "" ) {
 
+		if ( conn != null ) {
+			
+			conn.close();
+		}
+	
 		conn = new WebSocket(window.websocketURL);
 
 		conn.onopen = function () {
 
-			Session.identify();
+			setTimeout(function () {
+				
+				Session.identify();
+
+			}, 1000);
 		};
 
 		conn.onmessage = function(e) {
@@ -31,9 +40,13 @@ function wsStart() {
 			if ( firstSpace > 0 ) {
 
 				var type = e.data.substr(0, firstSpace);
-				var message = e.data.substr(firstSpace);
+				var message = e.data.substr(firstSpace + 1);
 
 				switch ( type ) {
+					
+					case "prediction":
+						window.Materialize.toast("Nueva prediccion: " + message, 8000, 'rounded green');
+						break;
 					
 					case "notification":
 						window.Materialize.toast(message, 8000, 'rounded green');
@@ -56,8 +69,6 @@ function wsStart() {
 }
 
 window.onload = function () {
-
-	wsStart();
 
 	document.getElementsByTagName('title')[0].innerHTML = window.appTitle;
 
