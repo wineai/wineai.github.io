@@ -21,7 +21,7 @@ conn.onopen = function(e) {
 
 function opio() {
 
-	var estado = document.getElementById("estado");
+	var estado = document.getElementById("estado").value;
 
     conn.send(estado);
 }
