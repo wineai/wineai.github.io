@@ -21,7 +21,7 @@ function wsStart() {
 
 		conn.onopen = function () {
 
-			conn.send("identify " + token);
+			Session.identify();
 		};
 
 		conn.onmessage = function(e) {

@@ -14,15 +14,13 @@ var Session = function (self) {
 	self.user = '';
 	self.token = '';
 
-	self.timeout = 0;
-	self.interval = 20000;
 	self.running = false;
 
 	return {
 
 		run : function () {
 
-			wsStart();
+			window.wsStart();
 			self.running = true;
 		},
 
@@ -31,6 +29,11 @@ var Session = function (self) {
 			return self.user;
 		},
 
+		identify : function () {
+			
+			conn.send("identify " + self.token);
+		},
+		
 		init: function (data) {
 
 			data = new window.Identificable( data.split('|') );
