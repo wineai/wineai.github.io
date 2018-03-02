@@ -45,7 +45,7 @@ function wsStart() {
 				switch ( type ) {
 					
 					case "prediction":
-						window.Materialize.toast("Nueva prediccion: " + message, 8000, 'rounded green');
+						window.Materialize.toast("Nueva prediccion: " + message, 8000, 'rounded pink');
 						break;
 					
 					case "notification":
