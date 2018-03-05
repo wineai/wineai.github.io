@@ -10,7 +10,7 @@
  */
 
 /* Dev */
-var feika = '/dev/test';	// for prediction shenanigans
+var feika = '';	// for prediction shenanigans /dev/test
 var zasshu = true;			// can't remember
 var phantom = false;		// to use the old login system
 var cristine = true;		// to disable the new session check
