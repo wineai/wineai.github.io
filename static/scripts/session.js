@@ -61,7 +61,7 @@ var Session = function (self) {
 				self.user = atob( data[1] );
 				self.token = data[0];
 
-				window.setCookie('session', self.token + '|' + data[1] + '|' + self.id, 14);
+				window.setCookie('session', data[0] + '|' + data[1] + '|' + data[2], 14);
 
 				if ( self.running == false ) {
 					
@@ -85,7 +85,7 @@ var Session = function (self) {
 		},
 
 		validate : function () {
-alert("logout");
+			console.log("logout with: " + self.token + self.user + self.id);
 			if ( (self.token + self.user + self.id) === '' ) {
 
 				var cookie = window.getCookie('session');
