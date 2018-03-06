@@ -78,6 +78,7 @@ var Session = function (self) {
 
 		destroy : function () {
 
+			self.id = '';
 			self.user = '';
 			self.token = '';
 
@@ -85,7 +86,7 @@ var Session = function (self) {
 		},
 
 		validate : function () {
-			console.log("logout with: " + self.token + self.user + self.id);
+
 			if ( (self.token + self.user + self.id) === '' ) {
 
 				var cookie = window.getCookie('session');
