@@ -11,6 +11,7 @@
 
 var Session = function (self) {
 
+	self.id = '';
 	self.user = '';
 	self.token = '';
 
@@ -35,6 +36,11 @@ var Session = function (self) {
 			}
 		},
 		
+		getUserID : function () {
+			
+			return self.id;
+		},
+		
 		getUsername : function () {
 
 			return self.user;
@@ -47,14 +53,15 @@ var Session = function (self) {
 		
 		init: function (data) {
 
-			data = new window.Identificable( data.split('|') );
+			data = data.split('|');
 
 			try {
 
-				self.user = atob( data.name );
-				self.token = data.id;
+				self.id = atob( data[2] );
+				self.user = atob( data[1] );
+				self.token = data[0];
 
-				window.setCookie('session', data.id + '|' + data.name );
+				window.setCookie('session', data.id + '|' + data.name + '|' + data.id, 14);
 
 				if ( self.running == false ) {
 					
