@@ -47,7 +47,7 @@ function wsStart() {
 					case "prediction":
 					
 						message = message.substr(1).replace(']', '').split(', ');
-					
+					console.log(message);
 						if ( message[3] === '-1' ) {
 							
 							window.Materialize.toast("Nueva prediccion: " + message[0] + " a las " + message[1] + " hrs. Mal", 8000, 'rounded red');
