@@ -50,11 +50,11 @@ function wsStart() {
 
 						if ( message[2] === '-1' ) {
 							
-							window.Materialize.toast("Nueva prediccion: " + message[0] + " a las " + message[1] + " hrs. Mal", 8000, 'rounded red');
+							window.Materialize.toast("Nueva prediccion: " + message[0] + " a las " + message[1] + " hrs. ➡ Mal", 8000, 'rounded red');
 						}
 						else if ( message[2] === '1' ) {
 							
-							window.Materialize.toast("Nueva prediccion: " + message[0] + " a las " + message[1] + " hrs. Bien", 8000, 'rounded green');
+							window.Materialize.toast("Nueva prediccion: " + message[0] + " a las " + message[1] + " hrs. ➡ Bien", 8000, 'rounded green');
 						}
 						else {
 
