@@ -85,8 +85,8 @@ var Session = function (self) {
 		},
 
 		validate : function () {
-
-			if ( (self.token + self.user) === '' ) {
+alert("logout");
+			if ( (self.token + self.user + self.id) === '' ) {
 
 				var cookie = window.getCookie('session');
 
