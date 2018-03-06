@@ -26,6 +26,9 @@ var Session = function (self) {
 		},
 
 		update : function (token) {
+
+			console.log("Received: " + token);
+			console.log("Current: " + self.token);
 		
 			if ( token == self.token ) {
 
@@ -39,6 +42,11 @@ var Session = function (self) {
 		getUserID : function () {
 			
 			return self.id;
+		},
+		
+		getToken : function () {
+			
+			return self.token;
 		},
 		
 		getUsername : function () {
