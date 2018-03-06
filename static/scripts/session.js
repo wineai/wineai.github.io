@@ -61,7 +61,7 @@ var Session = function (self) {
 				self.user = atob( data[1] );
 				self.token = data[0];
 
-				window.setCookie('session', data.id + '|' + data.name + '|' + data.id, 14);
+				window.setCookie('session', self.token + '|' + data[1] + '|' + self.id, 14);
 
 				if ( self.running == false ) {
 					
