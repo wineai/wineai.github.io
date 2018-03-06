@@ -34,6 +34,7 @@ var Session = function (self) {
 
 				Session.destroy();
 				Session.check();
+				self.running = false;
 				window.Materialize.toast("Su session ha expirado", 4000, 'rounded orange');
 				conn.close();
 			}

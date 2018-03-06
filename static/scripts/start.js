@@ -77,7 +77,7 @@ function wsStart() {
 						break;
 
 					case "session":
-						Session.update(message);
+						Session.update(message.trim());
 						break;
 
 					case "identify":
