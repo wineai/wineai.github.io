@@ -58,7 +58,7 @@ function wsStart() {
 						}
 						else {
 							
-							window.Materialize.toast("Unexpected prediccion: " + message, 8000, 'rounded pink');
+							window.Materialize.toast("Unexpected prediccion: " + message[3], 8000, 'rounded pink');
 						}
 
 						if ( location.hash === '#!/predictions' ) {
