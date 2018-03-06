@@ -145,7 +145,7 @@ window.onload = function () {
 		window.webserviceURL = n;
 	}
 
-	var xhr;
+	/*var xhr;
 	xhr = new XMLHttpRequest();
 	xhr.onload = function() {
 
@@ -163,6 +163,6 @@ window.onload = function () {
 	};
 	xhr.open('GET', webserviceURL + '/dev/var/get.php?variable=PREDICCION_INTERVALO', true);
 	xhr.send();
-	
+	*/
 	console.log("Everything OK");
 };
