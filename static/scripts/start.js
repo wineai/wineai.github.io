@@ -45,11 +45,35 @@ function wsStart() {
 				switch ( type ) {
 					
 					case "prediction":
-						window.Materialize.toast("Nueva prediccion: " + message, 8000, 'rounded pink');
+					
+						message = message.substr(1).replace(']', '').split(', ');
+					
+						if ( message[3] === '-1' ) {
+							
+							window.Materialize.toast("Nueva prediccion: " + message[0] + " a las " + message[1] + " hrs. Mal", 8000, 'rounded red');
+						}
+						else if ( message[3] === '1' ) {
+							
+							window.Materialize.toast("Nueva prediccion: " + message[0] + " a las " + message[1] + " hrs. Bien", 8000, 'rounded green');
+						}
+						else {
+							
+							window.Materialize.toast("Unexpected prediccion: " + message, 8000, 'rounded pink');
+						}
+
+						if ( location.hash === '#!/predictions' ) {
+
+							window.reloadData();
+						}
+
 						break;
 					
 					case "notification":
 						window.Materialize.toast(message, 8000, 'rounded green');
+						break;
+						
+					case "update":
+						window.Materialize.toast(message, 8000, 'rounded blue');
 						break;
 
 					case "session":
