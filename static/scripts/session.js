@@ -42,7 +42,21 @@ var Session = function (self) {
 		
 		getUserID : function () {
 			
-			return self.id;
+			if (self.id) {
+				
+				return self.id;
+			}
+			else {
+				
+				var cookie = window.getCookie('session').split('|');
+				
+				if ( cookie.length > 2 ) {
+					
+					return cookie[2];
+				}
+				
+				return '';
+			}
 		},
 		
 		getToken : function () {
