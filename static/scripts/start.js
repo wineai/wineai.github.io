@@ -81,7 +81,14 @@ function wsStart() {
 						break;
 
 					case "identify":
-						/* Ignore */
+						
+						console.log("Someone is identifying.");
+						
+						if ( location.hash === '#!/account' ) {
+
+							window.updateSessionTable();
+						}
+
 						break;
 
 					default:
