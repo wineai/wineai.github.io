@@ -46,17 +46,14 @@ var Session = function (self) {
 				
 				return self.id;
 			}
-			else {
-				
-				var cookie = window.getCookie('session').split('|');
-				
-				if ( cookie.length > 2 ) {
-					
-					return cookie[2];
-				}
-				
-				return '';
+			
+			try {
+
+				return atob(window.getCookie('session').split('|')[2]);
 			}
+			catch (e) {}
+
+			return '';
 		},
 		
 		getToken : function () {
