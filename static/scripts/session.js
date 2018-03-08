@@ -25,6 +25,18 @@ var Session = function (self) {
 			self.running = true;
 		},
 
+		destroy : function () {
+
+			self.id = '';
+			self.user = '';
+			self.token = '';
+			self.running = false;
+			window.setCookie('session', '', 7);
+			conn.close();
+
+			Session.check();
+		},
+
 		update : function (token) {
 
 			console.log("Received: " + token);
@@ -33,10 +45,7 @@ var Session = function (self) {
 			if ( token == self.token ) {
 
 				Session.destroy();
-				Session.check();
-				self.running = false;
 				window.Materialize.toast("Su session ha expirado", 4000, 'rounded orange');
-				conn.close();
 			}
 		},
 		
@@ -96,13 +105,23 @@ var Session = function (self) {
 			return false;
 		},
 
-		destroy : function () {
+		logout : function () {
 
-			self.id = '';
-			self.user = '';
-			self.token = '';
+			window.$.ajax({
 
-			window.setCookie('session', '', 7);
+				url: window.webserviceURL + '/session/logout-token.php?token=' + self.token + '&random=' + Math.random(),
+				success : function(response) {
+
+					if ( response === '1' ) {
+
+						Session.logout();
+					}
+					else {
+						
+						window.alert('Cant logout');
+					}
+				}
+			});
 		},
 
 		validate : function () {
