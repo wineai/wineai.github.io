@@ -30,11 +30,14 @@ var Session = function (self) {
 			self.id = '';
 			self.user = '';
 			self.token = '';
-			self.running = false;
-			window.setCookie('session', '', 7);
-			conn.close();
 
-			Session.check();
+			if ( self.running !== false ) {
+
+				self.running = false;
+				conn.close();
+			}
+
+			window.setCookie('session', '', 7);
 		},
 
 		update : function (token) {
@@ -45,6 +48,7 @@ var Session = function (self) {
 			if ( token == self.token ) {
 
 				Session.destroy();
+				Session.check();
 				window.Materialize.toast("Su session ha expirado", 4000, 'rounded orange');
 			}
 		},
@@ -92,14 +96,15 @@ var Session = function (self) {
 
 				window.setCookie('session', data[0] + '|' + data[1] + '|' + data[2], 14);
 
-				if ( self.running == false ) {
+				if ( self.running === false ) {
 					
-					this.run();
+					Session.run();
 				}
 
 				return true;
 			}
 			catch (e) {
+				console.log(e);
 			}
 
 			return false;
@@ -114,7 +119,9 @@ var Session = function (self) {
 
 					if ( response === '1' ) {
 
+						window.conn.send('identify update-table');
 						Session.destroy();
+						Session.check();
 					}
 					else {
 						
@@ -132,9 +139,10 @@ var Session = function (self) {
 
 				if ( cookie !== '' ) {
 
-					this.destroy();
-					this.init(cookie);
-					return this.validate();
+					Session.destroy();
+					Session.init(cookie);
+
+					return Session.validate();
 				}
 			}
 			else {
@@ -147,7 +155,7 @@ var Session = function (self) {
 
 		check : function () {
 			
-			if ( !this.validate() && location.hash.substr(3) !== 'login' ) {
+			if ( !Session.validate() && location.hash.substr(3) !== 'login' ) {
 
 				location.href = '#!/login';
 			}
