@@ -114,7 +114,7 @@ var Session = function (self) {
 
 					if ( response === '1' ) {
 
-						Session.logout();
+						Session.destroy();
 					}
 					else {
 						
