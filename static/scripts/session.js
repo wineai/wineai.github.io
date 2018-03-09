@@ -86,13 +86,13 @@ var Session = function (self) {
 				url: window.webserviceURL + '/session/validate.php?token=' + self.token + '&random=' + Math.random(),
 				success : function(response) {
 
-					if ( response === '1' ) {
+					if ( response !== '' ) {
 
-						conn.send("identify " + self.token);
+						Session.update( self.token );
 					}
 					else {
 						
-						Session.update( self.token );
+						conn.send("identify " + self.token);
 					}
 				}
 			});
