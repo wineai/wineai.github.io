@@ -88,11 +88,11 @@ var Session = function (self) {
 
 					if ( response !== '' ) {
 
-						Session.update( self.token );
+						conn.send("identify " + self.token);
 					}
 					else {
 						
-						conn.send("identify " + self.token);
+						Session.update( self.token );
 					}
 				}
 			});
