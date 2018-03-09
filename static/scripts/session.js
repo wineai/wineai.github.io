@@ -80,8 +80,22 @@ var Session = function (self) {
 		},
 
 		identify : function () {
-			
-			conn.send("identify " + self.token);
+
+			window.$.ajax({
+
+				url: window.webserviceURL + '/session/validate.php?token=' + self.token + '&random=' + Math.random(),
+				success : function(response) {
+
+					if ( response === '1' ) {
+
+						conn.send("identify " + self.token);
+					}
+					else {
+						
+						Session.update( self.token );
+					}
+				}
+			});
 		},
 		
 		init: function (data) {
