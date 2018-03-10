@@ -33,16 +33,6 @@ function wsStart() {
 			}, 1000);
 		};
 
-		conn.onerror = function (e) {
-			
-			console.log("error starting in 5");
-			setTimeout(function () {
-				
-				wsStart();
-
-			}, 5000);
-		};
-		
 		conn.onclose = function (e) {
 
 			console.log("closed starting in 5");
