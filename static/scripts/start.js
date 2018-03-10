@@ -21,7 +21,7 @@ function wsStart() {
 			
 			conn.close();
 		}
-	
+
 		conn = new WebSocket(window.websocketURL);
 
 		conn.onopen = function () {
@@ -31,6 +31,15 @@ function wsStart() {
 				Session.identify();
 
 			}, 1000);
+		};
+
+		conn.onerror = function (e) {
+			
+			setTimeout(function () {
+				
+				wsStart();
+
+			}, 5000);
 		};
 
 		conn.onmessage = function(e) {
