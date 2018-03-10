@@ -48,13 +48,13 @@ function wsStart() {
 					
 						message = message.substr(1).replace(']', '').split(', ');
 
-						if ( message[2] === '-1' ) {
+						if ( message[3] === '-1' ) {
 							
-							window.Materialize.toast("Nueva prediccion: " + message[0] + " a las " + message[1] + " hrs. ➡ Mal", 8000, 'rounded red');
+							window.Materialize.toast("Nueva prediccion: " + message[1] + " a las " + message[2] + " hrs. ➡ Mal", 8000, 'rounded red');
 						}
-						else if ( message[2] === '1' ) {
+						else if ( message[3] === '1' ) {
 							
-							window.Materialize.toast("Nueva prediccion: " + message[0] + " a las " + message[1] + " hrs. ➡ Bien", 8000, 'rounded green');
+							window.Materialize.toast("Nueva prediccion: " + message[1] + " a las " + message[2] + " hrs. ➡ Bien", 8000, 'rounded green');
 						}
 						else {
 
@@ -63,7 +63,8 @@ function wsStart() {
 
 						if ( location.hash === '#!/predictions' ) {
 
-							window.reloadData();
+							//window.reloadData();
+							window.actualizeValue(message[0], message[2], message[3]);
 						}
 
 						break;
