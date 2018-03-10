@@ -190,8 +190,6 @@ function getCookie(cname) {
 
 function formatTime(s) {
 
-	s = (s - (s % 1000)) / 1000;
-
 	var secs = s % 60;
 
 	s = (s - secs) / 60;
