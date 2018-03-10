@@ -1,8 +1,8 @@
 .check-centered {
-	
-	vertical-align:middle;
-	height:20px;
-	line-height:20px;
+
+	height: 20px !important;
+	line-height: 20px !important;
+	vertical-align: middle !important;
 }
 
 .tab {
