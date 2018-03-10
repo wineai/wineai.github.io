@@ -41,6 +41,15 @@ function wsStart() {
 
 			}, 5000);
 		};
+		
+		conn.onclose = function (e) {
+
+			setTimeout(function () {
+				
+				wsStart();
+
+			}, 5000);
+		};
 
 		conn.onmessage = function(e) {
 
