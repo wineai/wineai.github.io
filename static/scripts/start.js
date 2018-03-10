@@ -35,6 +35,7 @@ function wsStart() {
 
 		conn.onerror = function (e) {
 			
+			console.log("error starting in 5");
 			setTimeout(function () {
 				
 				wsStart();
@@ -44,6 +45,7 @@ function wsStart() {
 		
 		conn.onclose = function (e) {
 
+			console.log("closed starting in 5");
 			setTimeout(function () {
 				
 				wsStart();
