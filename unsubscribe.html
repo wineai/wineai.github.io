@@ -1,0 +1,147 @@
+<!DOCTYPE html><html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Wine AI - Notifications</title>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src="static/scripts/variables.js"></script>
+<style type="text/css" media="screen">
+
+body {
+
+	cursor: default;
+	background-color: #f1f1f1;
+	margin: 0;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.container {
+
+	margin: 50px auto 40px auto;
+	width: 600px;
+	text-align: center;
+}
+
+a {
+	cursor: pointer;
+	color: #4183c4;
+	text-decoration: none;
+}
+
+a:hover {
+
+	text-decoration: underline;
+}
+
+h1 {
+	width: 800px;
+	position:relative;
+	left: -100px;
+	letter-spacing: -1px;
+	line-height: 60px;
+	font-size: 60px;
+	font-weight: 100;
+	margin: 0px 0 50px 0;
+	text-shadow: 0 1px 0 #fff;
+}
+
+p {
+	color: rgba(0, 0, 0, 0.5);
+	margin: 20px 0;
+	line-height: 1.6;
+}
+
+button {
+
+	cursor: pointer;
+}
+
+</style>
+	<script type="text/javascript">
+
+	function getParameters() {
+
+		var result = {};
+		var tmp = [];
+
+		var items = location.search.substr(1).split("&");
+
+		for (var index = 0; index < items.length; index++) {
+
+			tmp = items[index].split("=");
+
+			result[ tmp[0] ] = decodeURIComponent(tmp[1]);
+		}
+
+		return result;
+	}
+
+	function allResponse() {
+
+		document.getElementById("title").innerHTML = "Se han desactivado todas las notificaciones";
+		document.getElementById("content").innerHTML = 'Ya no recibira correos electronicos cuando ocurran nuevas predicciones.<br>Para reactivar, solo debe marcar <i class="material-icons" style="vertical-align:middle;height:27px;">email</i> en la <a href="./#!/predictions">Tabla de Predicciones</a>.';
+	}
+
+	function singleResponse(fermentationID, fermentationName) {
+
+		document.getElementById("title").innerHTML = "Se han desactivado las notificaciones<br>para la fermentacion: " + fermentationName;
+		document.getElementById("content").innerHTML = 'Ya no recibira correos electronicos cuando ' + fermentationName + ' tenga nuevas predicciones.<br>Para reactivar las notificaciones de esta fermentacion <button onclick="resuscribe(' + fermentationID + ');">Click Aqui</button><br>Para cancelar todas las notificaciones <button onclick="unsuscribeAll();">Click Aqui</button>';
+	}
+
+	function errorResponse() {
+	
+		document.getElementById("title").innerHTML = "Unexpected Error";
+		document.getElementById("content").innerHTML = "There was a error while procesing your request<br>or the link you used may have expired.";
+	}
+
+	function unsuscribeAll() {
+	
+		location.href = location.href.substr(0, location.href.search("&target=")) + "&target=all";
+	}
+	
+	window.onload = function () {
+
+		//TODO
+		//data must be validated via xhr
+		//if key dont match add message "link expired"
+	
+		var data = getParameters();
+
+		if ( data.email && data.key && data.target ) {
+		
+			var xhttp = new XMLHttpRequest();
+			xhttp.open("GET", window.webserviceURL + "/query/unsubscribe.php?key=" + data.key + "&email=" + data.email + "&target=" + data.target + "&random=" + Math.random(), true);
+			xhttp.onload = function() {
+
+				if ( this.responseText !== '' ) {
+
+					if ( data.target == 'all' ) {
+					
+						allResponse();
+					}
+					else {
+					
+						singleResponse(data.target, this.responseText);
+					}
+				}
+				else {
+				
+					errorResponse();
+				}
+			};
+			xhttp.onerror = function () {
+			
+				errorResponse();
+			};
+			xhttp.send();
+		}
+	}
+	
+</script>
+</head>
+<body><div class="container">
+
+      <h1>Wine AI</h1>
+      <p style="font-size:20px;line-height:22px;"><strong id="title">Notification System</strong></p>
+      <p id="content">Procesing request...</p>
+
+</div></body></html>
