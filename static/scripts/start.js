@@ -35,12 +35,17 @@ function wsStart() {
 
 		conn.onclose = function (e) {
 
-			console.log("closed starting in 5");
+			console.log('WS Closed! reconnecting in 5...');
 			setTimeout(function () {
 				
 				wsStart();
 
 			}, 5000);
+		};
+		
+		conn.onerror = function (e) {
+			
+			//console.log(e);
 		};
 
 		conn.onmessage = function(e) {
