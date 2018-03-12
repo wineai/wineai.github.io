@@ -31,15 +31,18 @@ var Session = function (self) {
 			self.user = '';
 			self.token = '';
 
+			window.setCookie('session', '', 7);
+		},
+
+		mute : function () {
+
 			if ( self.running !== false ) {
 
 				self.running = false;
 				conn.close();
 			}
-
-			window.setCookie('session', '', 7);
 		},
-
+		
 		update : function (token) {
 
 			console.log("Received: " + token);
@@ -49,6 +52,8 @@ var Session = function (self) {
 
 				Session.destroy();
 				Session.check();
+				Session.mute();
+
 				window.Materialize.toast("Su session ha expirado", 4000, 'rounded orange');
 			}
 		},
@@ -131,16 +136,10 @@ var Session = function (self) {
 				url: window.webserviceURL + '/session/logout-token.php?token=' + self.token + '&random=' + Math.random(),
 				success : function(response) {
 
-					if ( response === '1' ) {
-
-						window.conn.send('identify update-table');
-						Session.destroy();
-						Session.check();
-					}
-					else {
-						
-						window.alert('Cant logout');
-					}
+					Session.destroy();
+					Session.check();
+					window.conn.send('identify update-table');
+					Session.mute();
 				}
 			});
 		},
