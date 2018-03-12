@@ -28,9 +28,6 @@ var Session = function (self) {
 
 		update : function (token) {
 
-			console.log("Received: " + token);
-			console.log("Current: " + self.token);
-		
 			if ( token == self.token ) {
 
 				Session.destroy();

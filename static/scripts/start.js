@@ -16,8 +16,7 @@ function wsStart() {
 	var token = window.getCookie("session");
 
 	if ( token === "" ) {
-		
-		console.log("waiting for session...");
+
 		//no session 
 		setTimeout(function () {
 
@@ -110,7 +109,7 @@ function wsStart() {
 						
 						console.log("Someone is identifying.");
 						
-						if ( location.hash === '#!/account' ) {
+						if ( location.hash === '#!/activityLog' ) {
 
 							window.updateSessionTable();
 						}
