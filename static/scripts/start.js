@@ -106,9 +106,14 @@ function wsStart() {
 						break;
 
 					case "identify":
-						
+
 						console.log("Someone is identifying.");
-						
+
+						if ( location.hash === '#!/activityLog' && message === 'update-table-forced' ) {
+
+							window.reloadData();
+						}
+
 						if ( location.hash === '#!/activityLog' ) {
 
 							window.updateSessionTable();
