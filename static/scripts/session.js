@@ -15,15 +15,7 @@ var Session = function (self) {
 	self.user = '';
 	self.token = '';
 
-	self.running = false;
-
 	return {
-
-		run : function () {
-
-			window.wsStart();
-			self.running = true;
-		},
 
 		destroy : function () {
 
@@ -34,15 +26,6 @@ var Session = function (self) {
 			window.setCookie('session', '', 7);
 		},
 
-		mute : function () {
-
-			if ( self.running !== false ) {
-
-				self.running = false;
-				conn.close();
-			}
-		},
-		
 		update : function (token) {
 
 			console.log("Received: " + token);
@@ -52,7 +35,6 @@ var Session = function (self) {
 
 				Session.destroy();
 				Session.check();
-				Session.mute();
 
 				window.Materialize.toast("Su session ha expirado", 4000, 'rounded orange');
 			}
@@ -115,11 +97,6 @@ var Session = function (self) {
 
 				window.setCookie('session', data[0] + '|' + data[1] + '|' + data[2], 14);
 
-				if ( self.running === false ) {
-					
-					Session.run();
-				}
-
 				return true;
 			}
 			catch (e) {
@@ -139,7 +116,6 @@ var Session = function (self) {
 					Session.destroy();
 					Session.check();
 					window.conn.send('identify update-table');
-					Session.mute();
 				}
 			});
 		},

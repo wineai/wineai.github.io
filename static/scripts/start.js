@@ -15,12 +15,17 @@ function wsStart() {
 
 	var token = window.getCookie("session");
 
-	if ( token != "" ) {
+	if ( token === "" ) {
+		
+		console.log("waiting for session...");
+		//no session 
+		setTimeout(function () {
 
-		if ( conn != null ) {
-			
-			conn.close();
-		}
+			wsStart();
+
+		}, 1000);
+	}
+	else {
 
 		conn = new WebSocket(window.websocketURL);
 
@@ -38,11 +43,11 @@ function wsStart() {
 			console.log('WS Closed! reconnecting in 5...');
 			setTimeout(function () {
 				
-				wsStart();
+				location.reload();
 
 			}, 5000);
 		};
-		
+
 		conn.onerror = function (e) {
 			
 			//console.log(e);
@@ -50,6 +55,11 @@ function wsStart() {
 
 		conn.onmessage = function(e) {
 
+			if ( Session.getToken() === "" ) {
+				
+				return;
+			}
+		
 			var firstSpace = e.data.search(" ");
 
 			if ( firstSpace > 0 ) {
@@ -116,6 +126,8 @@ function wsStart() {
 }
 
 window.onload = function () {
+
+	wsStart();
 
 	document.getElementsByTagName('title')[0].innerHTML = window.appTitle;
 
