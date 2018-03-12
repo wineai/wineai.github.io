@@ -25,7 +25,7 @@
 	function singleResponse(fermentationID, fermentationName) {
 
 		document.getElementById("title").innerHTML = "Se han desactivado las notificaciones<br>para la fermentacion: " + fermentationName;
-		document.getElementById("content").innerHTML = 'Ya no recibira correos electronicos cuando ' + fermentationName + ' tenga nuevas predicciones.<br>Para cancelar todas las notificaciones <button onclick="unsuscribeAll();">Click Aqui</button><br>Para reactivar esta y otras fermentaciones solo debe marcar <i class="material-icons" style="vertical-align:middle;height:27px;">email</i> en la <a href="./#!/predictions">Tabla de Predicciones</a>.';
+		document.getElementById("content").innerHTML = 'Ya no recibira correos electronicos cuando ' + fermentationName + ' tenga nuevas predicciones.<br>Para cancelar todas las notificaciones <button onclick="unsuscribeAll();">Click Aqui</button><br>Para reactivar esta y otras fermentaciones solo debe marcar <i class="material-icons" style="vertical-align:middle;height:27px;">email</i><br>en la <a href="./#!/predictions">Tabla de Predicciones</a>.';
 	}
 
 	function errorResponse() {
