@@ -122,6 +122,19 @@ button {
 					
 						singleResponse(data.target, this.responseText);
 					}
+					
+					var conn = new WebSocket(window.websocketURL);
+					conn.onopen = function () {
+
+						setTimeout(function () {
+							
+							conn.send('identify update-table-forced');
+
+						}, 1000);
+					};
+					conn.onclose = function (e) {};
+					conn.onerror = function (e) {};
+					conn.onmessage = function (e) {};
 				}
 				else {
 				
