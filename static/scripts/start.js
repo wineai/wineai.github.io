@@ -109,7 +109,7 @@ function wsStart() {
 
 						console.log("Someone is identifying.");
 
-						if ( location.hash === '#!/activityLog' && message === 'update-table-forced' ) {
+						if ( location.hash === '#!/predictions' && message === 'update-table-forced' ) {
 
 							window.reloadData();
 						}
