@@ -35,7 +35,7 @@ var enablePlotCaching = false;	// owo what dis
 
 /* Config */
 var websocketURL = 'wss://winesocket.ddns.net:8080';
-var webstaticURL = "https://wineviewer.ddns.net/static";
+var webstaticURL = "https://wineai.github.io/static";
 var webserviceURL = "https://wineservice.ddns.net/BackEnd";
 var predictionInterval = 1000*60*60*12;
 var enableAnimations = false;
