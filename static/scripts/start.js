@@ -135,11 +135,11 @@ window.onload = function () {
 
 	document.getElementsByTagName('title')[0].innerHTML = window.appTitle;
 
-	if ( location.protocol !== 'http:' ) {
+	/*if ( location.protocol !== 'http:' ) {
 
 		location.href = 'http:' + window.location.href.substring( window.location.protocol.length );
 		return;
-	}
+	}*/
 
 	window.enableAnimations = window.getCookie('enableAnimations') !== '';
 	window.enableCarouselView = window.getCookie('enableCarouselView') !== '';
