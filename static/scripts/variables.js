@@ -36,7 +36,7 @@ var enablePlotCaching = false;	// owo what dis
 /* Config */
 var websocketURL = 'ws://winesocket.ddns.net:8080';
 var webstaticURL = "http://wineviewer.ddns.net/static";
-var webserviceURL = "http://wineservice.ddns.net:8081/BackEnd";
+var webserviceURL = "http://wineservice.ddns.net/BackEnd";
 var predictionInterval = 1000*60*60*12;
 var enableAnimations = false;
 var enableCarouselView = false;
