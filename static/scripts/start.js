@@ -135,7 +135,7 @@ window.onload = function () {
 
 	document.getElementsByTagName('title')[0].innerHTML = window.appTitle;
 
-	if ( window.forceHTTPS && location.protocol !== 'http:' ) {
+	if ( !window.forceHTTPS && location.protocol !== 'http:' ) {
 
 		location.href = 'http:' + window.location.href.substring( window.location.protocol.length );
 		return;
