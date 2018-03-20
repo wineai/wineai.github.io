@@ -17,6 +17,7 @@ var cristine = true;		// to disable the new session check
 var devcounter = 0;
 var devtabindex = null;
 
+
 /* App */
 var appTitle = 'WineAI';
 var plotData = null;
@@ -34,9 +35,10 @@ var linkFromTheAbyss = null;	// cant remember purpose maybe link from prediction
 var enablePlotCaching = false;	// owo what dis 
 
 /* Config */
-var websocketURL = 'ws://winesocket.ddns.net:8080';
-var webstaticURL = "http://wineviewer.ddns.net/static";
-var webserviceURL = "http://wineservice.ddns.net/BackEnd";
+var forceHTTPS = true;
+var websocketURL = 'wss://wineservice.ddns.net/wss2/';
+var webstaticURL = "https://wineai.github.io/static";
+var webserviceURL = "https://wineservice.ddns.net/BackEnd";
 var predictionInterval = 1000*60*60*12;
 var enableAnimations = false;
 var enableCarouselView = false;
