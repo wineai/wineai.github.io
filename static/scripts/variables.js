@@ -37,8 +37,8 @@ var enablePlotCaching = false;	// owo what dis
 /* Config */
 var forceHTTPS = true;
 var webstaticURL = 'https://wineai.github.io/static';
-var websocketURL = 'wss://wineservice.ddns.net/WebSocket/';
-var webserviceURL = 'https://wineservice.ddns.net/BackEnd';
+var websocketURL = 'wss://nightroad.ddns.net/WebSocket/';
+var webserviceURL = 'https://nightroad.ddns.net/wineai';
 var predictionInterval = 1000*60*60*12;
 var enableAnimations = false;
 var enableCarouselView = false;
